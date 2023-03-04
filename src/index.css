@@ -84,3 +84,6 @@ button:focus-visible {
   background-color: lavender;
 }
 
+.Card.answer {
+  background-color: lightblue;
+}

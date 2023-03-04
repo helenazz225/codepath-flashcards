@@ -12,7 +12,7 @@ const Card = (props) => {
     //     }
     // }
     return (
-        <div className="Card">
+        <div className={'Card ' + props.color}>
             <p>{props.words}</p>
         </div>
     )
