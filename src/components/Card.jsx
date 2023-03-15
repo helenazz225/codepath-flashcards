@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const Card = (props) => {
     const [side, setSide] = useState(props.question)
+    const [guess, setGuess] = useState('')
     // const handleSide = () => {
     //     // console.log('test')
     //     if (side == props.question) {
@@ -11,9 +12,14 @@ const Card = (props) => {
     //         setSide(props.question)
     //     }
     // }
+    const handleChange = (e) => {
+        setGuess(e.target.value)
+    }
     return (
         <div className={'Card ' + props.color}>
             <p>{props.words}</p>
+            {/* <input value={guess} onChange={handleChange}></input>
+            <button>Submit</button> */}
         </div>
     )
 }

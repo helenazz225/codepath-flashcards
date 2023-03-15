@@ -23,13 +23,19 @@ const Display = () => {
     const [words, setWords] = useState(FLASHCARD_INDEX[1])
     const [lastWords, setLastWords] = useState(FLASHCARD_INDEX[1])
     const [cardColor, setCardColor] = useState('')
+    const [guess, setGuess] = useState('')
+    const [message, setMessage] = useState('')
+    const [currAnswer, setCurrAnswer] = useState(FLASHCARD_INFO[FLASHCARD_INDEX[1]])
     // const [currWords, changeWords] = useState(FLASHCARD_INDEX[cardNum])
     var cardNum = 1
     // var lastWords = FLASHCARD_INDEX[1]
     const handleCardNum = () => {
         cardNum = (Math.floor(Math.random() * 5) + 1)
         setWords(FLASHCARD_INDEX[cardNum])
+        setCurrAnswer(FLASHCARD_INFO[FLASHCARD_INDEX[cardNum]])
         setCardColor('')
+        setMessage('')
+        setGuess('')
     }
     const handleWords = () => {
         if (Object.keys(FLASHCARD_INFO).includes(words)) {
@@ -41,14 +47,29 @@ const Display = () => {
             setCardColor('')
         }
     }
+    const handleChange = (e) => {
+        setGuess(e.target.value)
+    }
+    const checkMessage = () => {
+        console.log(currAnswer.toLowerCase())
+        if (guess.toLowerCase().includes(currAnswer.toLowerCase())) {
+            console.log(true)
+            setMessage('correct!')
+        } else {
+            setMessage('wrong!')
+        }
+    }
     return (
         <div className="Display">
             <h1>Georgia Tech</h1>
             <h5>Learn about the different buildings around campus, as well as some fun historical facts!</h5>
             <h5>Number of cards: {Object.keys(FLASHCARD_INFO).length}</h5>
             <div onClick={handleWords} className="card-container"><Card words={words} color={cardColor}/></div>
+            <input value={guess} onChange={handleChange}></input>
+            <button onClick={checkMessage}>Submit</button>
             <button onClick={handleCardNum}> Next</button>
             {/* <p>{lastWords}</p> */}
+            <p>{message}</p>
         </div>
     )
 }

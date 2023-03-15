@@ -82,8 +82,14 @@ button:focus-visible {
   /* background-color: red; */
   border: 0.5px solid black;
   background-color: lavender;
+  flex-direction: column;
 }
 
 .Card.answer {
   background-color: lightblue;
 }
+/* 
+.Display {
+  display: flex;
+  flex-direction: ;
+} */
