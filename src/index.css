@@ -89,7 +89,12 @@ button:focus-visible {
   background-color: lightblue;
 }
 /* 
-.Display {
+.guess {
+  width: 200px;
+} */
+
+/* .Display {
   display: flex;
-  flex-direction: ;
+  flex-direction: column;
+  justify-content: center;
 } */
